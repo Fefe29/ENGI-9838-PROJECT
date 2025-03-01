@@ -1,0 +1,123 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{float}
+\usepackage{bookmark}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{longtable}
+
+\geometry{margin=1in}
+
+\title{\textbf{Assignment 2: Report}}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Group Members}
+\vspace{-5pt}
+\begin{itemize}
+    \item \textbf{Mohsen IranianGhareshiran} - 202382341
+    \item \textbf{Galilea Le Moullec} - 202415993
+    \item \textbf{Félicien Moquet} - 202415994
+    \item \textbf{Kateryna Nazarenko} - 202415995
+\end{itemize}
+
+
+\section{System Architecture and UML Diagrams}
+
+\subsection{Class Diagram for Core Modules}
+The Automated Online Test Monitoring System consists of multiple modules:
+\begin{itemize}
+\item \textbf{User Module}: Handles test-taker authentication and access management.
+\item \textbf{Monitoring Module}: Utilizes AI-based facial recognition, gaze tracking, and motion detection.
+\item \textbf{Anti-Spoofing Module}: Implements deepfake detection and liveness verification.
+\item \textbf{Reporting Module}: Generates logs and alerts for test administrators.
+\item \textbf{Integration Module}: Ensures compatibility with existing LMS such as Moodle or ExamSoft.
+\end{itemize}
+
+\subsection{Use Case Diagram for User Interactions}
+The following actors interact with the system:
+\begin{itemize}
+\item \textbf{Test-taker}: Participates in the online exam while being monitored.
+\item \textbf{Administrator}: Reviews reports and adjusts monitoring settings.
+\item \textbf{System AI}: Performs real-time analysis and reporting.
+\end{itemize}
+
+Use case interactions include:
+\begin{itemize}
+\item Start Exam (Test-taker initiates a session)
+\item Monitor Test (AI-driven real-time observation)
+\item Detect Fraudulent Behavior (Anti-spoofing mechanisms activate upon suspicious activity)
+\item Generate Report (System logs flagged behaviors and generates reports)
+\item Administrator Review (Admin evaluates reports and decides on any actions)
+\end{itemize}
+
+\subsection{Sequence Diagram for Key Workflows}
+\begin{enumerate}
+\item Test-taker logs in and starts the exam.
+\item AI-driven monitoring begins (facial recognition, motion tracking, gaze detection).
+\item If suspicious behavior is detected, an alert is generated.
+\item The system logs the behavior and updates the administrator dashboard.
+\item The administrator reviews the report post-exam.
+\end{enumerate}
+
+\section{Test Plan and Suite}
+
+\subsection{Unit Tests}
+\begin{itemize}
+\item \textbf{Facial Recognition Module}: Test AI accuracy in recognizing legitimate users.
+\item \textbf{Anti-Spoofing Measures}: Validate that deepfake detection correctly flags fraudulent activities.
+\item \textbf{Logging \& Reporting}: Ensure flagged incidents are stored accurately in the database.
+\end{itemize}
+\textbf{Tools:} JUnit for backend logic, OpenCV for AI validation.
+
+\subsection{API Tests}
+If microservices are used, API tests will ensure:
+\begin{itemize}
+\item Secure authentication for test-takers.
+\item Efficient data exchange between LMS and monitoring system.
+\item Accurate data retrieval for post-exam reviews.
+\end{itemize}
+\textbf{Tools:} Postman, Jest (for API verification)
+
+\section{Justification of Design Choices}
+
+\subsection{Transition to Microservices}
+Our system is structured using a \textbf{microservices architecture} to enable modularity, scalability, and ease of integration with existing LMS. The following design choices were made:
+\begin{itemize}
+\item \textbf{Decoupled AI Processing}: The AI-driven monitoring module operates independently, reducing system overhead.
+\item \textbf{Scalable Cloud Deployment}: The system is deployed on AWS/GCP, allowing horizontal scaling.
+\item \textbf{Secure Data Handling}: Only AI-generated reports are stored to maintain privacy compliance.
+\end{itemize}
+
+\subsection{Why Microservices?}
+\begin{itemize}
+\item \textbf{Modularity}: Easier debugging and independent module updates.
+\item \textbf{Scalability}: Allows handling thousands of concurrent test sessions.
+\item \textbf{Interoperability}: Seamless integration with various LMS platforms.
+\end{itemize}
+
+\section{Team Contribution \& Documentation}
+
+\begin{longtable}{|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{10cm}|}
+\hline
+\textbf{Team Member} & \textbf{Contribution} \\ \hline
+Mohsen IranianGhareshiran & Developed AI-based facial recognition and motion tracking \\ \hline
+Galilea Le Moullec & Designed system architecture and microservices integration \\ \hline
+Félicien Moquet & Worked on test plan, unit testing, and API verification \\ \hline
+Kateryna Nazarenko & Developed reporting module and integration with LMS \\ \hline
+\end{longtable}
+
+\subsection{Summary of Contributions}
+Each member contributed to both the conceptualization and implementation of the system. We collaborated on system design, ensuring alignment with the feasibility study.
+
+\section{Conclusion}
+This assignment outlines the core \textbf{design, architecture, and testing} framework for our \textbf{Automated Online Test Monitoring System}. By adopting \textbf{microservices architecture, AI-driven monitoring, and cloud deployment}, our system ensures \textbf{scalability, security, and reliability} in remote assessments. The proposed \textbf{testing strategy and design justification} further enhance the feasibility of a \textbf{cost-effective and privacy-conscious} solution for online proctoring.
+
+\end{document}
