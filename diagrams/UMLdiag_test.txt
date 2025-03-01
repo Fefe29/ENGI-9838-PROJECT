@@ -1,0 +1,26 @@
+@startuml
+
+actor "Educator" as Educator
+actor "Institution" as Institution
+actor "Candidate" as Candidate
+
+rectangle "Automated Online Test Monitoring System" {
+    usecase "Live Activity Detection" as U1
+    usecase "Anti-Spoofing Measures" as U2
+    usecase "Automated Reporting" as U3
+    usecase "Scalability" as U4
+    usecase "Time-Zone Adaptability" as U5
+}
+
+Educator --> U1
+Educator --> U2
+Educator --> U3
+Institution --> U1
+Institution --> U2
+Institution --> U3
+Institution --> U4
+Institution --> U5
+Candidate --> U1
+Candidate --> U2
+
+@enduml
